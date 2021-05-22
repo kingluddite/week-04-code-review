@@ -1,0 +1,32 @@
+{
+  "name": "review-week-02",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+   "scripts": {
+    "copyfonts": "copyfiles -f node_modules/font-awesome/fonts/* dist/fonts",
+    "imagemin": "imagemin assets/img/* -o dist/img",
+    "usemin": "usemin contactus.html -d dist --htmlmin -o dist/contactus.html && usemin aboutus.html -d dist --htmlmin -o dist/aboutus.html && usemin index.html -d dist --htmlmin -o dist/index.html",
+    "lite": "lite-server",
+    "start": "npm run watch:all",
+    "sass": "sass assets/css/styles.scss assets/css/styles.css",
+    "watch:scss": "onchange 'assets/css/*.scss' -- npm run sass",
+    "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
+    "clean": "rimraf dist",
+    "build": "npm run clean && npm run imagemin && npm run copyfonts && npm run usemin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kingluddite/week-04-code-review.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kingluddite/week-04-code-review/issues"
+  },
+  "homepage": "https://github.com/kingluddite/week-04-code-review#readme",
+  "devDependencies": {
+    "sass": "^1.34.0"
+  }
+}
